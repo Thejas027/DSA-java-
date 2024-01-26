@@ -1,7 +1,7 @@
 public class SubArraySum {
 
     public static void subArSum(int num[]) {
-        int Sum = 0;
+
         int minSum = Integer.MAX_VALUE;
         int maxSum = Integer.MIN_VALUE;
 
@@ -9,11 +9,11 @@ public class SubArraySum {
 
             for (int j = i + 1; j < num.length; j++) {
                 System.out.print("[ ");
-
+                int Sum = 0;
                 for (int k = i; k <= j; k++) {
 
                     System.out.print(num[k] + " ");
-                    Sum = num[i] + num[j];
+                    Sum += num[k];
                     // System.out.println("Sum is : " + Sum);
                 }
 
