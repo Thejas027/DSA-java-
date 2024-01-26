@@ -1,4 +1,4 @@
-package KandeesAlgo;
+package KandaneAlgo;
 
 public class SubArraySum {
 
