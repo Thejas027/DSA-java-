@@ -8,13 +8,3 @@ public class ArrayOperations {
       
   }
 }
-
-
-
-echo "# DSA-java-" >> README.md
-git init
-
-
-
-
-git push -u origin main
