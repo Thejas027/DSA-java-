@@ -1,4 +1,5 @@
 package SubArraySumPro;
+
 public class SubArraySum {
 
     public static void subArSum(int num[]) {
