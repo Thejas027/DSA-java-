@@ -1,4 +1,5 @@
-// package Questions;
+package ArrayPairs;
+
 
 class ArrayPairs {
   public static void printParis(int numbers[]) {

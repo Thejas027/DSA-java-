@@ -1,3 +1,4 @@
+package ArrayPairs;
 public class ArrayPairSum {
 
   public static void printParis(int numbers[]) {

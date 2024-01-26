@@ -1,3 +1,4 @@
+package ReverseArray;
 import java.util.Scanner;
 
 public class ReverseArray {
