@@ -1,3 +1,4 @@
+package SubArraySumPro;
 // best way to get the max val of an sub array and min val of an sub array with lesset time complexcity
 
 public class PrefixSum {

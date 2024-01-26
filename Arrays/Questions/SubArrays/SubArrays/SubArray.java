@@ -1,3 +1,4 @@
+package SubArrays;
 public class SubArray {
 
   public static void subArray(int num[]) {
