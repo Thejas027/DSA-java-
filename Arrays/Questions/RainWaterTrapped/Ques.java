@@ -1,5 +1,4 @@
 package RainWaterTrapped;
-import java.util.*;;
 public class Ques {
 
     public static int RainWaterTrapped(int height[]) {
