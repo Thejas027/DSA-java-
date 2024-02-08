@@ -1,4 +1,4 @@
-package ArrayList.Questions;
+package ArrayList.Questions.Reverse;
 
 import java.util.ArrayList;
 
