@@ -122,6 +122,28 @@ public class Linkedlist {
     }
   }
 
+  public int deleteAtPos(int pos) {
+    if (pos < 0 || pos > count) {
+      System.out.println("invalid index . cannot be deleted");
+      return -1;
+    } else if (pos == 0) {
+      return deleteAtfirst();
+    } else if (pos == count) {
+      return deleteAtLast();
+    }
+    Node current = head.next;
+    Node prev = head;
+    for (int i = 1; i < pos; i++) {
+      prev = current;
+      current = current.next;
+    }
+    int x = current.data;
+    prev.next = current.next;
+    count--;
+    return x;
+
+  }
+
   public static void main(String[] args) {
     Linkedlist ll = new Linkedlist();
     ll.addFirst(10);
@@ -134,11 +156,8 @@ public class Linkedlist {
     ll.display();
     System.out.println();
     System.out.println("The total number of nodes : " + ll.count);
-
-    System.out.println("deleted element : " + ll.deleteAtfirst());
-
-    System.out.println("deleted element : " + ll.deleteAtLast());
-    System.out.println("deleted element : " + ll.deleteAtLast());
+    
+    System.out.println("deleted element : " + ll.deleteAtPos(0));
     System.out.print("linked list after deletion : ");
     ll.display();
   }
