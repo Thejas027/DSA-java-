@@ -1,5 +1,5 @@
 
-// package LinkedLists;
+package LinkedLists;
 
 public class Linkedlist {
 
@@ -156,7 +156,7 @@ public class Linkedlist {
     ll.display();
     System.out.println();
     System.out.println("The total number of nodes : " + ll.count);
-    
+
     System.out.println("deleted element : " + ll.deleteAtPos(0));
     System.out.print("linked list after deletion : ");
     ll.display();
