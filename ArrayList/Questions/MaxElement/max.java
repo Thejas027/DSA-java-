@@ -11,10 +11,12 @@ public class max {
     list.add(6);
     list.add(3);
 
+    // time complex = O(n)
+
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < list.size(); i++) {
       if (max < list.get(i)) {
-        max = list.get(i);
+        max = list.get(i); // or max = Math.max(max,list.get(i));
       }
     }
     System.out.println("The max element : " + max);
