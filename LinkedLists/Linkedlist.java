@@ -1,9 +1,11 @@
 
-package LinkedLists;
+ package LinkedLists;
+
+import java.util.Scanner;
 
 public class Linkedlist {
 
-  public static class Node {
+  private static class Node {
     int data;
     Node next;
 
@@ -13,9 +15,13 @@ public class Linkedlist {
     }
   }
 
-  public static Node head;
-  public static Node tail;
-  public int count = 0;
+  private static Node head;
+  private static Node tail;
+  private int count = 0;
+
+  public boolean isEmpty() {
+    return head == null;
+  }
 
   public void addFirst(int data) {
     Node newnNode = new Node(data);
@@ -42,6 +48,31 @@ public class Linkedlist {
     tail = newNode;
   }
 
+  public void addPosition(int data, int pos) {
+    Node newNode = new Node(data);
+    Node current = head;
+    count++;
+    for (int i = 0; i < pos; i++) {
+      current = current.next;
+    }
+    newNode.next = current.next;
+    current.next = null;
+  }
+
+  public void addAtPos(int data, int pos) {
+    if (pos < 0 || pos > count) {
+      System.out.println("Invalid index\n");
+      return;
+    }
+    if (pos == 0) {
+      addFirst(data);
+    } else if (pos == count) {
+      addLast(data);
+    } else {
+      addPosition(data, pos);
+    }
+  }
+
   public void display() {
 
     Node current = head;
@@ -54,30 +85,6 @@ public class Linkedlist {
       current = current.next;
     }
     System.out.println("null");
-  }
-
-  public void addAtPos(int data, int pos) {
-    if (pos < 0 || pos > count) {
-      System.out.println("Invalid index\n");
-      return;
-    }
-
-    int i = 0;
-    if (pos == 0) {
-      addFirst(data);
-    } else if (pos == count) {
-      addLast(data);
-    } else {
-      Node newNode = new Node(data);
-      count++;
-      Node current = head;
-      while (i < pos - 1) {
-        current = current.next;
-        i++;
-      }
-      newNode.next = current.next;
-      current.next = newNode;
-    }
   }
 
   public int deleteAtfirst() {
@@ -146,20 +153,75 @@ public class Linkedlist {
 
   public static void main(String[] args) {
     Linkedlist ll = new Linkedlist();
-    ll.addFirst(10);
-    ll.addFirst(5);
-    ll.addLast(7);
-    ll.addLast(12);
-    ll.addAtPos(1234, 0);
-    ll.addAtPos(999, 5);
-    ll.addAtPos(30, 3);
-    ll.display();
-    System.out.println();
-    System.out.println("The total number of nodes : " + ll.count);
+    // ll.addFirst(1);
+    // ll.addAtPos(10, 1);
+    // ll.addAtPos(20, 2);
+    // ll.addLast(30);
+    // ll.display();
+    // System.out.println();
+    // System.out.println("The total number of nodes : " + ll.count);
 
-    System.out.println("deleted element : " + ll.deleteAtPos(0));
-    System.out.print("linked list after deletion : ");
-    ll.display();
+    // System.out.println("deleted element : " + ll.deleteAtPos(0));
+    // System.out.print("linked list after deletion : ");
+    // ll.display();
+
+    int choice, value, pos;
+    Scanner sc = new Scanner(System.in);
+    do {
+      System.out.println("MENU");
+      System.out.println("1.ADD ELEMENT AT FIRST");
+      System.out.println("2.ADD ELEMENT AT LAST");
+      System.out.println("3.ADD ELEMENT AT POSITON");
+      System.out.println("4.DELETE AT FIRST");
+      System.out.println("5.DELETE AT LAST");
+      System.out.println("6.DELETE AT POSITION");
+      System.out.println("7.DISPLAY THE LINKEDLIST");
+      System.out.println("8.TO EXIT THE PROGRAm");
+      System.out.println("ENTER YOUR CHOICE");
+      choice = sc.nextInt();
+      switch (choice) {
+        case 1:
+          System.out.println("ENTER THE VALUE TO BE INSERTED AT FIRST");
+          value = sc.nextInt();
+          ll.addFirst(value);
+          break;
+        case 2:
+          System.out.println("ENTER THE VALUE TO BE INSERTED IN LAST");
+          value = sc.nextInt();
+          ll.addLast(value);
+          break;
+        case 3:
+          System.out.println("ENTER THE POSITION TO INSERT THE DATA");
+          pos = sc.nextInt();
+          System.out.println("ENTER THE VALUE TO INSERT AT " + pos + ":");
+          value = sc.nextInt();
+          ll.addAtPos(value, pos);
+          break;
+        case 4:
+          System.out.println("DELETED ELEMENT AT LAST : " + ll.deleteAtLast());
+          break;
+        case 5:
+          System.out.println("DELETED ELEMENT AT FIRST : " + ll.deleteAtfirst());
+          break;
+        case 6:
+          System.out.println("ENETR THE POSITION TO DELETE THE VALUE");
+          pos = sc.nextInt();
+          System.out.println("DELETED ELEMENT AT GIVEN " + pos + ":" + ll.deleteAtPos(pos));
+          break;
+
+        case 7:
+          System.out.println("Linked list Elemnets : ");
+          ll.display();
+          break;
+        case 8:
+          System.out.println("EXITING PROGRAM.. ");
+          return;
+        default:
+          System.out.println("INVALID CHOICE..");
+          break;
+      }
+    } while (choice != 9);
+    sc.close();
   }
 
 }
