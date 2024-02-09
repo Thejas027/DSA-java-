@@ -1,5 +1,5 @@
 
- package LinkedLists;
+package LinkedLists;
 
 import java.util.Scanner;
 
@@ -223,5 +223,4 @@ public class Linkedlist {
     } while (choice != 9);
     sc.close();
   }
-
 }
