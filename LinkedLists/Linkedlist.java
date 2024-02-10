@@ -250,12 +250,13 @@ public class Linkedlist {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
-
+                break;
             }
         }
-        if (slow != fast) {
+        if (fast == null || fast.next == null) {
             return;
         }
+        slow = head;
         if (slow.next != fast.next) {
             slow = slow.next;
             fast = fast.next;
