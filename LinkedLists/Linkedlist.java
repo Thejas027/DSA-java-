@@ -1,5 +1,5 @@
 
-package LinkedLists;
+// package LinkedLists;
 
 import java.util.Scanner;
 
@@ -49,14 +49,7 @@ public class Linkedlist {
   }
 
   public void addPosition(int data, int pos) {
-    Node newNode = new Node(data);
-    Node current = head;
-    count++;
-    for (int i = 0; i < pos; i++) {
-      current = current.next;
-    }
-    newNode.next = current.next;
-    current.next = null;
+
   }
 
   public void addAtPos(int data, int pos) {
@@ -69,7 +62,14 @@ public class Linkedlist {
     } else if (pos == count) {
       addLast(data);
     } else {
-      addPosition(data, pos);
+      Node newNode = new Node(data);
+      Node current = head;
+      count++;
+      for (int i = 0; i < pos; i++) {
+        current = current.next;
+      }
+      newNode.next = current.next;
+      current.next = newNode;
     }
   }
 
@@ -151,24 +151,88 @@ public class Linkedlist {
 
   }
 
+  public void reverse() {
+    Node prev = null;
+    Node current = tail = head;
+    Node currentNext;
+    while (current != null) {
+      currentNext = current.next;
+      current.next = prev;
+      prev = current;
+      current = currentNext;
+    }
+    head = prev;
+  }
+
+  public void deleteNthfromEnd(int n) {
+    int sz = 0;
+    Node temp = head;
+    while (temp != null) {
+      temp = temp.next;
+      sz++;
+    }
+    if (n == sz) {
+      head = head.next;
+      return;
+    }
+    int i = 1;
+    int iToFind = sz - n;
+    Node prev = head;
+    while (i < iToFind) {
+      prev = prev.next;
+      i++;
+    }
+    prev.next = prev.next.next;
+    return;
+  }
+
+  // FUNCTION TO FIND WEATHER THE LINKED LIST IS PALINDROME
+
+  public Node findMid(Node head) {
+    Node slowNode = head;
+    Node fastNode = head;
+    while (fastNode != null && fastNode.next != null) {
+      slowNode = slowNode.next;
+      fastNode = fastNode.next.next;
+    }
+    return slowNode;
+  }
+
+  public boolean isPalindrome() {
+    if (head == null || head.next == null) {
+      return true;
+    }
+    // step-1 to find the mid element
+    Node mid = findMid(head);
+    // step 2 to reverse the second half of linked list
+    Node prev = null;
+    Node current = mid;
+    Node currentNext;
+    while (current != null) {
+      currentNext = current.next;
+      current.next = prev;
+      prev = current;
+      current = currentNext;
+    }
+    Node right = prev;
+    Node left = head;
+    // step 3 to compare both the halfs linked list
+    while (right != null) {
+      if (left.data != right.data) {
+        return false;
+      }
+      left = left.next;
+      right = right.next;
+    }
+    return true;
+  }
+
   public static void main(String[] args) {
     Linkedlist ll = new Linkedlist();
-    // ll.addFirst(1);
-    // ll.addAtPos(10, 1);
-    // ll.addAtPos(20, 2);
-    // ll.addLast(30);
-    // ll.display();
-    // System.out.println();
-    // System.out.println("The total number of nodes : " + ll.count);
-
-    // System.out.println("deleted element : " + ll.deleteAtPos(0));
-    // System.out.print("linked list after deletion : ");
-    // ll.display();
-
-    int choice, value, pos;
+    int choice, value, pos, N;
     Scanner sc = new Scanner(System.in);
     do {
-      System.out.println("MENU");
+      System.out.println("\nMENU");
       System.out.println("1.ADD ELEMENT AT FIRST");
       System.out.println("2.ADD ELEMENT AT LAST");
       System.out.println("3.ADD ELEMENT AT POSITON");
@@ -176,7 +240,10 @@ public class Linkedlist {
       System.out.println("5.DELETE AT LAST");
       System.out.println("6.DELETE AT POSITION");
       System.out.println("7.DISPLAY THE LINKEDLIST");
-      System.out.println("8.TO EXIT THE PROGRAm");
+      System.out.println("8.TO REVERSE THE LINKED LIST");
+      System.out.println("9.ENTER THE N VALUE TO DELETE THE NODE FROM LAST");
+      System.out.println("10.TO CHECK THE PALINDROME");
+      System.out.println("11.TO EXIT THE PROGRAM");
       System.out.println("ENTER YOUR CHOICE");
       choice = sc.nextInt();
       switch (choice) {
@@ -208,19 +275,35 @@ public class Linkedlist {
           pos = sc.nextInt();
           System.out.println("DELETED ELEMENT AT GIVEN " + pos + ":" + ll.deleteAtPos(pos));
           break;
-
         case 7:
           System.out.println("Linked list Elemnets : ");
           ll.display();
           break;
         case 8:
+          System.out.print("REVERDED LIST : ");
+          ll.reverse();
+          ll.display();
+          break;
+        case 9:
+          System.out.println("ENTER THE N VALUE TO DELTE THE NODE");
+          N = sc.nextInt();
+          ll.deleteNthfromEnd(N);
+          break;
+        case 10:
+          if (ll.isPalindrome()) {
+            System.out.println("Linked list is palindrome");
+          } else {
+            System.out.println("It's not a palindroem");
+          }
+          break;
+        case 11:
           System.out.println("EXITING PROGRAM.. ");
           return;
         default:
           System.out.println("INVALID CHOICE..");
           break;
       }
-    } while (choice != 9);
+    } while (choice != 11);
     sc.close();
   }
 }
