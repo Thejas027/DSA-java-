@@ -1,5 +1,5 @@
 
-// package LinkedLists;
+package LinkedLists;
 
 import java.util.Scanner;
 
@@ -227,6 +227,20 @@ public class Linkedlist {
     return true;
   }
 
+  // function to detect the loop in a cycle
+  public boolean detectCycle() {
+    Node slow = head;
+    Node fast = head;
+    while (fast != null && fast.next != null) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if (slow == fast) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static void main(String[] args) {
     Linkedlist ll = new Linkedlist();
     int choice, value, pos, N;
@@ -243,7 +257,8 @@ public class Linkedlist {
       System.out.println("8.TO REVERSE THE LINKED LIST");
       System.out.println("9.ENTER THE N VALUE TO DELETE THE NODE FROM LAST");
       System.out.println("10.TO CHECK THE PALINDROME");
-      System.out.println("11.TO EXIT THE PROGRAM");
+      System.out.println("11.TO CHECK WEATHER THE LINKED LIST HAS A LOOP IN IT OR NOT");
+      System.out.println("12.TO EXIT THE PROGRAM");
       System.out.println("ENTER YOUR CHOICE");
       choice = sc.nextInt();
       switch (choice) {
@@ -297,13 +312,20 @@ public class Linkedlist {
           }
           break;
         case 11:
+          if (ll.detectCycle()) {
+            System.out.println("it has loop in it");
+          } else {
+            System.out.println("No loop in a linked list");
+          }
+          break;
+        case 12:
           System.out.println("EXITING PROGRAM.. ");
           return;
         default:
           System.out.println("INVALID CHOICE..");
           break;
       }
-    } while (choice != 11);
+    } while (choice != 12);
     sc.close();
   }
 }
