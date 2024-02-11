@@ -240,24 +240,28 @@ public class Linkedlist {
     }
 
     // function to remove the cycle in a linked lsit
-    public void RemoveCycle() {
+    public static void RemoveCycle() {
         Node slow = head;
         Node fast = head;
         @SuppressWarnings("unused")
         Node prev = null;
+        boolean cycle = false;
         while (fast != null && fast.next != null) {
-            prev = slow;
+
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
+                cycle = true;
                 break;
             }
         }
-        if (fast == null || fast.next == null) {
+        // if (fast == null || fast.next == null)
+        if (cycle == false) {
             return;
         }
         slow = head;
-        if (slow.next != fast.next) {
+        if (slow != fast) {
+            prev = fast;
             slow = slow.next;
             fast = fast.next;
         }
@@ -281,7 +285,8 @@ public class Linkedlist {
             System.out.println("9.ENTER THE N VALUE TO DELETE THE NODE FROM LAST");
             System.out.println("10.TO CHECK THE PALINDROME");
             System.out.println("11.TO CHECK WEATHER THE LINKED LIST HAS A LOOP IN IT OR NOT");
-            System.out.println("12.TO EXIT THE PROGRAM");
+            System.out.println("12.REMOVE CYCLE IN LINKED LIST");
+            System.out.println("13.TO EXIT THE PROGRAM");
             System.out.println("ENTER YOUR CHOICE");
             choice = sc.nextInt();
             switch (choice) {
@@ -342,13 +347,18 @@ public class Linkedlist {
                     }
                     break;
                 case 12:
+                    System.out.println(ll.detectCycle());
+                    RemoveCycle();
+                    System.out.println(ll.detectCycle());
+                    break;
+                case 13:
                     System.out.println("EXITING PROGRAM.. ");
                     return;
                 default:
                     System.out.println("INVALID CHOICE..");
                     break;
             }
-        } while (choice != 12);
+        } while (choice != 13);
         sc.close();
     }
 }
