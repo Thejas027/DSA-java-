@@ -28,6 +28,10 @@ public class StackArrayList {
       }
       return list.get(list.size() - 1);
     }
+
+    public void display() {
+      System.out.println("Stack elements : " + list);
+    }
   }
 
   @SuppressWarnings(value = "static-access")
@@ -59,7 +63,7 @@ public class StackArrayList {
           System.out.println("The top most element in stack : " + stack.peek());
           break;
         case 4:
-          System.out.println("Stack elements : " + stack.list);
+          stack.display();
           break;
         case 5:
           System.out.println("Exiting the program..");
