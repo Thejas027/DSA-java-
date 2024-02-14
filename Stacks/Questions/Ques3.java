@@ -1,3 +1,5 @@
+// Reversing the satck elements 
+
 import java.util.*;
 
 public class Ques3 {
