@@ -19,7 +19,7 @@ public class Ques4 {
         int prevHigh = s.peek();
         span[i] = i - prevHigh;
       }
-      s.push(i);
+      s.push(i);    // index of an stack is being pushed since to track the elements is easier
     }
   }
 
