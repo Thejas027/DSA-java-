@@ -1,4 +1,4 @@
-// package Queues.Implementation;
+ package Queues.Implementation;
 
 public class QueueArrays {
 
