@@ -1,5 +1,4 @@
-// package Queues.Implementation;
-
+package Queues.Implementation;
 public class QueueLinkedlist {
 
   static class Node {
