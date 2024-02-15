@@ -6,6 +6,7 @@ public class QueueArrays {
     static int arr[];
     static int size;
     static int rear = -1;
+    static int front = -1;
 
     Queue(int n) {
       arr = new int[n];
@@ -21,11 +22,46 @@ public class QueueArrays {
         System.out.println("queue is full");
         return;
       }
-      arr[++rear] = value;
+      if (front == -1) {
+        front = rear = 0;
+        arr[front] = value;
+      } else if (rear == size - 1 && front != 0) {
+        rear = 0;
+        arr[rear] = value;
+      } else
+        arr[++rear] = value;
     }
+
+    public static int remove() {
+      if (isEmpty()) {
+        System.out.println("Queue is empty");
+        return -1;
+      }
+
+      int value = arr[front++];
+      if (front > rear) {
+        front = rear = -1;
+      }
+      return value;
+    }
+
+    public static void display() {
+      for (int i = front; i <= rear; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+
   }
 
+  @SuppressWarnings("static-access")
   public static void main(String[] args) {
+    Queue q = new Queue(5);
 
+    q.add(10);
+    q.add(20);
+    q.add(30);
+    q.remove();
+    q.display();
   }
 }
