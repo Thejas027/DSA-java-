@@ -1,4 +1,4 @@
-package SubArrays;
+package Arrays.Questions.SubArrays.SubArrays;
 
 public class SubArray {
 

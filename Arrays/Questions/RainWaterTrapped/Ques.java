@@ -1,4 +1,4 @@
-package RainWaterTrapped;
+package Arrays.Questions.RainWaterTrapped;
 public class Ques {
 
     public static int RainWaterTrapped(int height[]) {

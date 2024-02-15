@@ -1,4 +1,4 @@
-package SubArraySumPro;
+package Arrays.Questions.SubArrays.SubArraySumPro;
 // best way to get the max val of an sub array and min val of an sub array with least time complexcity
 
 public class PrefixSum {

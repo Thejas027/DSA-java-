@@ -1,4 +1,4 @@
-package ArrayPairs;
+package Arrays.Questions.ArrayPairs;
 
 public class ArrayPairSum {
 

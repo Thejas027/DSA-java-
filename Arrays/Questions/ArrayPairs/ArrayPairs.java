@@ -1,4 +1,4 @@
-package ArrayPairs;
+package Arrays.Questions.ArrayPairs;
 
 class ArrayPairs {
     public static void printParis(int numbers[]) {

@@ -1,4 +1,4 @@
-package SubArraySumPro;
+package Arrays.Questions.SubArrays.SubArraySumPro;
 
 public class SubArraySum {
 
