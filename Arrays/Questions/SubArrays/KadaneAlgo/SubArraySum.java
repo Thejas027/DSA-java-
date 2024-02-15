@@ -1,4 +1,4 @@
-package KadaneAlgo;
+package SubArrays.KadaneAlgo;
 
 public class SubArraySum {
 

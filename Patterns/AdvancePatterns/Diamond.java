@@ -1,3 +1,5 @@
+package Patterns.AdvancePatterns;
+
 // package Patterns.AdvancePatterns;
 
 public class Diamond {
