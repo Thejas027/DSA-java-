@@ -1,8 +1,8 @@
-package Patterns.AdvancePatterns;
+// package Patterns.AdvancePatterns;
 
 public class Diamond {
   public static void main(String[] agrs) {
-    int n = 4;
+    int n = 5;
     for (int i = 1; i <= n; i++) {
       for (int j = 1; j <= n - i; j++) {
         System.out.print(" ");
@@ -15,7 +15,8 @@ public class Diamond {
       }
       System.out.println();
     }
-    //
+
+    // lower part
     for (int i = n; i >= 1; i--) {
       for (int j = 1; j <= n - i; j++) {
         System.out.print(" ");
