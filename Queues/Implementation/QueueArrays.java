@@ -1,20 +1,22 @@
-package Queues.Implementation;
+// package Queues.Implementation;
 
 public class QueueArrays {
 
   static class Queue {
     static int arr[];
     static int size;
-    static int rear = -1;
-    static int front = -1;
+    static int rear;
+    static int front;
 
     Queue(int n) {
       arr = new int[n];
       size = n;
+      front = -1;
+      rear = -1;
     }
 
     public static boolean isEmpty() {
-      return rear == -1;
+      return rear == -1 && front == -1;
     }
 
     public static void add(int value) {
@@ -45,6 +47,14 @@ public class QueueArrays {
       return value;
     }
 
+    public static int peek() {
+      if (isEmpty()) {
+        System.out.println("Queue is empty");
+        return -1;
+      }
+      return arr[front];
+    }
+
     public static void display() {
       for (int i = front; i <= rear; i++) {
         System.out.print(arr[i] + " ");
@@ -63,5 +73,6 @@ public class QueueArrays {
     q.add(30);
     q.remove();
     q.display();
+    System.out.println("peek : " + q.peek());
   }
 }
