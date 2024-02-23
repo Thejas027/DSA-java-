@@ -35,3 +35,4 @@ public class Ques1 {
     printNonReaptingCh(str);
   }
 }
+  
