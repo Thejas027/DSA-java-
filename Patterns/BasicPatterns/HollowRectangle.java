@@ -1,5 +1,7 @@
 package Patterns.BasicPatterns;
 
+// simple pattern quetion it prints the hollow rectangle patter
+
 public class HollowRectangle {
   public static void main(String[] agrs) {
     int n = 4;
