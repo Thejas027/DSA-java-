@@ -1,5 +1,3 @@
-package Queues.Questions;
-
 // Inter leave 2 halfs of queue (EVEN LENGTH)
 // EX : 1,2,3,4,5,6,7,8,9,10   --> input given   ---  here 1 to 5 is first halve and 6 to 10 is a second halve  
 // 1,6,2,7,3,8,4,9,5,10  --> it should be the output of above input   --- inter leaved output 
