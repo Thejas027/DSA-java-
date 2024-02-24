@@ -1,6 +1,3 @@
-
-// package ArrayList.Questions.MultiDimensionalArrayList;
-
 import java.util.*;
 
 public class MultiDAL {
