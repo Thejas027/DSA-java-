@@ -1,4 +1,9 @@
-// package Patterns.BasicPatterns;
+package Patterns.BasicPatterns;
+
+/*
+ * 1.FLODDY's TRIANGLE PATTERN 
+ * 2.ZERO-ONE TRIANGLE PATTERN 
+ */
 
 import java.util.Scanner;
 
