@@ -1,5 +1,4 @@
-package LinkedLists;
-
+package SingleLL;
 
 import java.util.Scanner;
 
@@ -33,7 +32,6 @@ public class Linkedlist {
         }
         newnNode.next = head;
         head = newnNode;
-
     }
 
     public void addLast(int data) {
@@ -270,6 +268,7 @@ public class Linkedlist {
         fast.next = null;
     }
 
+    @SuppressWarnings("static-access")
     public static void main(String[] args) {
         Linkedlist ll = new Linkedlist();
         int choice, value, pos, N;
@@ -314,6 +313,7 @@ public class Linkedlist {
                     break;
                 case 5:
                     System.out.println("DELETED ELEMENT AT FIRST : " + ll.deleteAtfirst());
+                    System.out.println(ll.head.data);
                     break;
                 case 6:
                     System.out.println("ENETR THE POSITION TO DELETE THE VALUE");
@@ -362,5 +362,6 @@ public class Linkedlist {
             }
         } while (choice != 13);
         sc.close();
+
     }
 }
