@@ -166,7 +166,7 @@ public class CircularLL {
         System.out.print("before deletion : ");
         cl.display();
         System.out.println("Number of nodes before deletion : " + cl.count);
-        System.out.println("deleted element : " + cl.deleteAtPos(4)); // its based on zero based indexing give it
+        System.out.println("deleted element : " + cl.deleteAtPos(2)); // its based on zero based indexing give it
                                                                       // accordingly to get the proper out put
         System.out.print("after deletion : ");
         cl.display();
