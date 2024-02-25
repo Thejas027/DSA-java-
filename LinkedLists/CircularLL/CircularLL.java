@@ -120,7 +120,7 @@ class CLL {
             while (prev.next != head)
                 prev = prev.next;
             int val = tail.data;
-            prev.next = tail.next;
+            prev.next = head;
             tail = prev;
             count--;
             return val;
@@ -129,7 +129,7 @@ class CLL {
 
     // function to delete the element at particular position
     int deleteAtPos(int pos) {
-        if (pos < 0 || pos > count) {
+        if (pos < 0 || pos >= count) {
             System.out.println("invalid position element cannot be deleted.");
             return -1;
         }
@@ -140,13 +140,16 @@ class CLL {
         else {
             Node current = head;
             Node prev = null;
-            for (int i = 1; i <= pos - 1; i++) {
+            for (int i = 1; i <= pos; i++) {
                 prev = current;
                 current = current.next;
             }
 
             int val = current.data;
             prev.next = current.next;
+            if (current == tail) {
+                tail = prev;
+            }
             count--;
             return val;
         }
@@ -163,9 +166,11 @@ public class CircularLL {
         System.out.print("before deletion : ");
         cl.display();
         System.out.println("Number of nodes before deletion : " + cl.count);
-        System.out.println("deleted element : " + cl.deleteAtPos(2));
+        System.out.println("deleted element : " + cl.deleteAtPos(4)); // its based on zero based indexing give it
+                                                                      // accordingly to get the proper out put
         System.out.print("after deletion : ");
         cl.display();
         System.out.println("Number of nodes " + cl.count);
     }
+
 }
