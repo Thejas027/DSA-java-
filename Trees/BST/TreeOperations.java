@@ -80,6 +80,36 @@ class Tree {
             }
         }
     }
+
+    // fi=unction to find the height of a tree
+    int height(Node root) {
+        int leftHeight, rightHeight;
+        if (root != null) {
+            leftHeight = height(root.lchild);
+            rightHeight = height(root.rchild);
+
+            return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+        }
+        return 0;
+    }
+
+    // function to count the number of nodes in tree
+    int countNode(Node root) {
+        if (root != null)
+            return countNode(root.lchild) + countNode(root.rchild) + 1;
+        return 0;
+    }
+
+    // function to find the sum of all the nodes
+
+    int sum(Node root) {
+        if (root == null)
+            return 0;
+
+        int leftSum = sum(root.lchild);
+        int rightSum = sum(root.rchild);
+        return leftSum + rightSum + root.data;
+    }
 }
 
 public class TreeOperations {
@@ -90,13 +120,23 @@ public class TreeOperations {
         root = t.bulidTree(root, 5);
         root = t.bulidTree(root, 15);
         root = t.bulidTree(root, 20);
+        root = t.bulidTree(root, 11);
         System.out.print("Pre Order :");
         t.preOrder(root);
+        System.out.println();
         System.out.print("\nPost Order :");
         t.postOrder(root);
+        System.out.println();
         System.out.print("\nIn order :");
         t.inOrder(root);
-        System.out.print("\nLevel Order :");
+        System.out.println();
+        System.out.print("\nLevel Order :\n");
         t.levelOrder(root);
+        System.out.println();
+        System.out.println("The height of tree : " + t.height(root));
+        System.out.println();
+        System.out.println("Total number of nodes in BST : " + t.countNode(root));
+        System.out.println();
+        System.out.println("sum of tree : " + t.sum(root));
     }
 }
