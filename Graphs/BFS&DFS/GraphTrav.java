@@ -1,6 +1,6 @@
-
 import java.util.*;
 
+// program to create the Graph in Adajency List using Array Lists
 class Edge {
     int source;
     int destination;
@@ -73,6 +73,24 @@ class Graph {
             if (!visited[e.destination])
                 DFS(graph, e.destination, visited);
         }
+    }
+
+    // function to find weather for given soruce and destination it has a path or
+    // not
+
+    public boolean hasPath(ArrayList<Edge>[] graph, int soruce, int destination, boolean[] visited) {
+
+        if (soruce == destination)
+            return true;
+        visited[soruce] = true;
+        for (int i = 0; i < graph[soruce].size(); i++) {
+            Edge e = graph[soruce].get(i);
+            if (!visited[e.destination] && hasPath(graph, e.destination, destination, visited)) {
+                return true;
+            }
+
+        }
+        return false;
     }
 }
 
