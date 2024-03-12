@@ -1,3 +1,5 @@
+package Trees.BST;
+
 class Node {
     Node lchild;
     int data;
