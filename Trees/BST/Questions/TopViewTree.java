@@ -66,7 +66,9 @@ class Tree {
 
     public void topView(Node root) {
         Queue<info> q = new LinkedList<>();
+
         HashMap<Integer, Node> map = new HashMap<>();
+
         int min = 0, max = 0;
 
         q.add(new info(root, 0));
