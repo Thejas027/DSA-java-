@@ -41,8 +41,8 @@ class Tree {
 
         return false;
     }
-    // main function that returns the lowest common ancestor value to main function
 
+    // main function that returns the lowest common ancestor value to main function
     public Node LCA(Node root, int n1, int n2) { // LCA ---Lowest Common Ancestor
         ArrayList<Node> path1 = new ArrayList<>();
         ArrayList<Node> path2 = new ArrayList<>();
@@ -75,6 +75,7 @@ public class LowestCommonAncestor {
         root.lchild.rchild = new Node(5);
         root.rchild.lchild = new Node(6);
         root.rchild.rchild = new Node(7);
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter n1 and n2 value to find their ancestors(both n1 and n2 should be present in tree ) : ");
         int n1 = sc.nextInt();
