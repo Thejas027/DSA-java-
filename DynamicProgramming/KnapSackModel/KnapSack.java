@@ -37,30 +37,6 @@ class KnapSack01 {
             return dp[n][W];
         }
     }
-
-    // TABULATION METHOS
-    public int TabulationRec(int val[], int wt[], int W, int n) {
-        int dp[][] = new int[val.length + 1][W + 1];
-        if (W == 0 || n == 0)
-            return 0;
-
-        for (int i = 1; i < n + 1; i++) {
-            for (int j = 0; j < W + 1; j++) {
-                if (wt[n - 1] <= j) {
-                    int p1 = val[i - 1] + dp[i - 1][j - wt[n - 1]];
-
-                    int p2 = dp[i - 1][j - wt[n - 1]];
-
-                    dp[n][W] = Math.max(p1, p2);
-                    return dp[n][W];
-                } else {
-                    dp[n][W] = TabulationRec(val, wt, W - wt[n - 1], n - 1);
-                    return dp[n][W];
-                }
-            }
-        }
-        return n;
-    }
 }
 
 public class KnapSack {
