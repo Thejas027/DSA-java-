@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class Ques1 {
 
-  public static void printNonReaptingCh(String str) {
+       public static void printNonReaptingCh(String str) {
     int freq[] = new int[26]; // to keep the track of the character how many times it is reapeating
     Queue<Character> q = new LinkedList<>();
     for (int i = 0; i < str.length(); i++) {
